@@ -1,5 +1,1 @@
-flask
-requests
-colorama
-twilio
-gunicorn
+
