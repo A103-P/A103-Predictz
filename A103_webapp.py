@@ -613,5 +613,7 @@ if __name__=="__main__":
     print(f"\n  Watch the PyCharm terminal for fetch progress")
     print(f"  Press Ctrl+C to stop\n"+"="*58+"\n")
     threading.Thread(target=do_fetch, daemon=True).start()
-    threading.Timer(1.5, lambda: webbrowser.open("http://localhost:5000")).start()
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    timport os
+port = int(os.environ.get("PORT", 5000))
+app.run(host="0.0.0.0", port=port, debug=False)hreading.Timer(1.5, lambda: webbrowser.open("http://localhost:5000")).start()
+    
