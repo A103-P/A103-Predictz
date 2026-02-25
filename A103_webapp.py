@@ -603,17 +603,14 @@ window.addEventListener('DOMContentLoaded',startPoll);
 
 # ── Entry point ──
 if __name__=="__main__":
-    import webbrowser, threading
+    import webbrowser, threading, os
+    port = int(os.environ.get("PORT", 5000))
     print("\n"+"="*58)
     print("  A103 PREDICTZ AI — Web App")
     print("="*58)
     print(f"\n  Fetching fixtures in background...")
-    print(f"  Open browser at: http://localhost:5000")
-    print(f"  On your phone:   http://192.168.4.97:5000")
-    print(f"\n  Watch the PyCharm terminal for fetch progress")
-    print(f"  Press Ctrl+C to stop\n"+"="*58+"\n")
+    print(f"  Open browser at: http://localhost:{port}")
+    print(f"\n  Press Ctrl+C to stop\n"+"="*58+"\n")
     threading.Thread(target=do_fetch, daemon=True).start()
-    timport os
-port = int(os.environ.get("PORT", 5000))
-app.run(host="0.0.0.0", port=port, debug=False)hreading.Timer(1.5, lambda: webbrowser.open("http://localhost:5000")).start()
-    
+    threading.Timer(1.5, lambda: webbrowser.open(f"http://localhost:{port}")).start()
+    app.run(host="0.0.0.0", port=port, debug=False)
